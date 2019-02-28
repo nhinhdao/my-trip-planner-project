@@ -41,6 +41,9 @@
   height: 40px;
   border-radius: 40%
 }
+.icons{
+  font-size: 20px;
+}
 
 .scrollit {
   overflow: auto;

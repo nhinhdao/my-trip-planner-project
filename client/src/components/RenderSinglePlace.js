@@ -24,7 +24,6 @@ class RenderSinglePlace extends Component {
 
   render() {
     const { myPlace } = this.props;
-    console.log(myPlace.isAddedToList);
     const imageList = myPlace.photos ?
       <Carousel showThumbs={false} infiniteLoop={true}>
         {myPlace.photos.map((photo, index) =>

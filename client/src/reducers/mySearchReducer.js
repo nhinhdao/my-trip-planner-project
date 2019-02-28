@@ -4,7 +4,6 @@ export default function mySearchReducer(state = { places: [], myList: [], single
     case 'LOADING_QUERY':
       return { ...state, loading: true}
     case 'FETCH_MY_SEARCH_QUERY':
-      debugger
       data = action.payload.map(data => data = { id: data.id, name: data.name, category: data.categories[0] ? data.categories[0].title : 'N/A', image: data.image_url, isAddedToList: false});
       return { ...state, places: data, loading: false };
     case 'FETCH_SINGLE_SEARCH_QUERY':

@@ -3,6 +3,7 @@ import { mySearchQuery, singleSearchQuery } from '../actions/APIsearch';
 import SearchForm from '../containers/SearchForm';
 import RenderSearchData from './RenderSearchData';
 import RenderSinglePlace from './RenderSinglePlace';
+import { Container, Row, Col } from 'reactstrap';
 
 import { connect } from 'react-redux';
 
@@ -15,23 +16,21 @@ class WelcomePage extends Component {
   
   render() {
     return (
-      <React.Fragment>
-        <h1>Welcome to The Best Place!</h1>
-        <p>Let's find you a place of your interest...</p>
+      <Container>
+        <h1>Let's do some search around!</h1>
         <SearchForm handleSearch={this.props.mySearchQuery} />
         <hr />
-        <div className="row">
-          <div className='col-1' />
-          <div className="col-3">
+        <Row>
+          <Col xs="3">
             {this.props.mySearchData.map(data => <RenderSearchData key={data.id} handleSearch={this.props.singleSearchQuery} toggleRender={this.toggleRender} place={data}/>)}
-          </div>
-          <div className="col-7">
+          </Col>
+          <Col xs="1" />
+          <Col xs="7">
             {this.state.clicked ? <RenderSinglePlace myPlace={this.props.myPlace} /> : null}
-          </div>
-          <div className='col-1' />
-        </div>
-        
-      </React.Fragment>
+          </Col>
+          <Col xs="1" />
+        </Row>
+      </Container>
     )
   }
 }

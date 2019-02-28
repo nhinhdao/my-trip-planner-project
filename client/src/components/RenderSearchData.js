@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 
 class RenderSearchData extends Component {
   handleClick = id => {
@@ -10,13 +11,12 @@ class RenderSearchData extends Component {
   render() {
     const { place } = this.props;
     return (
-      <div onClick={() => this.handleClick(place.id)} className='RenderSearchData'>
-        <div className="scrollit">
-          {place.isAddedToList ? <span> &#9733; </span> : <span> &#9734; </span>}
-          <small>{place.category}</small>
-          <h6>{place.name}</h6>
-        </div>
-      </div>
+      <ListGroupItem onClick={() => this.handleClick(place.id)} className='RenderSearchData'>
+        <ListGroupItemText>
+          {place.isAddedToList ? <span className="icons"> &#9733; </span> : <span className="icons"> &#9734; </span>}{place.category}
+        </ListGroupItemText>
+        <ListGroupItemHeading>{place.name}</ListGroupItemHeading>
+      </ListGroupItem>
     )
   }
 }
